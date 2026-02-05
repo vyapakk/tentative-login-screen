@@ -72,16 +72,51 @@ const Index = () => {
       </div>
 
       {/* Right Panel - Login Form */}
-      <div className="w-full lg:w-1/2 xl:w-2/5 flex flex-col justify-center px-6 sm:px-12 lg:px-16 xl:px-20 bg-background">
-        <div className="w-full max-w-md mx-auto space-y-8">
-          {/* Mobile Logo */}
-          <div className="lg:hidden flex justify-center mb-8">
-            <img 
-              src={stratviewLogo} 
-              alt="Stratview Research" 
-              className="h-14 w-auto"
-            />
+      <div className="w-full lg:w-1/2 xl:w-2/5 flex flex-col bg-background">
+        {/* Mobile/Tablet Hero Section */}
+        <div className="lg:hidden relative overflow-hidden">
+          <BackgroundPattern />
+          <div className="relative z-10 px-6 sm:px-12 py-10 sm:py-12">
+            {/* Logo */}
+            <div className="flex justify-center mb-6">
+              <img 
+                src={stratviewLogo} 
+                alt="Stratview Research" 
+                className="h-12 sm:h-14 w-auto brightness-0 invert"
+              />
+            </div>
+            
+            {/* Heading */}
+            <div className="text-center space-y-3 mb-6">
+              <h1 className="text-2xl sm:text-3xl font-bold text-primary-foreground leading-tight">
+                Welcome to
+                <span className="text-stratview-mint"> Stratview One</span>
+              </h1>
+              <p className="text-sm sm:text-base text-primary-foreground/80 max-w-md mx-auto">
+                Your unified platform for market research data and strategic intelligence.
+              </p>
+            </div>
+
+            {/* Features - Horizontal scroll on mobile */}
+            <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide justify-center flex-wrap">
+              {features.map((feature, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/10 backdrop-blur-sm border border-white/10 flex-shrink-0"
+                >
+                  <feature.icon className="h-4 w-4 text-stratview-mint" />
+                  <span className="text-xs sm:text-sm font-medium text-primary-foreground/90 whitespace-nowrap">
+                    {feature.text}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
+        </div>
+
+        {/* Login Form Container */}
+        <div className="flex-1 flex flex-col justify-center px-6 sm:px-12 lg:px-16 xl:px-20 py-8 lg:py-0">
+        <div className="w-full max-w-md mx-auto space-y-8">
 
           {/* Header */}
           <div className="space-y-2 text-center lg:text-left">
@@ -105,6 +140,7 @@ const Index = () => {
               </a>
             </p>
           </div>
+        </div>
         </div>
       </div>
     </div>
